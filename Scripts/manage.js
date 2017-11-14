@@ -1,10 +1,11 @@
 
 var relPath = "../Content/";
 var lastStylesheet;
-var style;
+var style = "default";
 
 $(document).ready(function(){
   readCookie();
+  getHtmlContent("home.html");
   loadStylesheet(lastStylesheet[1]);
 
   $("#home").click(function(){

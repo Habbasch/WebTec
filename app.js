@@ -4,11 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
-var server = app.listen(80, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log("Example app listening at %s:%s Port", host, port)
-});
+
 
 app.post('/thank', urlencodedParser, function (req, res){
   var reply='';
@@ -20,4 +16,10 @@ app.post('/thank', urlencodedParser, function (req, res){
 
 app.get('/thank', function (req, res) {
   res.send('Hello World!');
+});
+
+var server = app.listen(8081, function () {
+  var host = '127.0.0.1';
+  var port = server.address().port;
+  console.log("Example app listening at %s:%s Port", host, port);
 });
