@@ -17,3 +17,7 @@ app.post('/thank', urlencodedParser, function (req, res){
   console.log("done");
   res.send(reply);
 });
+
+app.get('/thank', function (req, res) {
+  res.send('Hello World!');
+});
