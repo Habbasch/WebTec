@@ -68,20 +68,23 @@ body
   }
   #top_menu {
     width: 150px;
-    display: block;
-    height: 100vh;
     background-color: #1a1a00;
-    border-left: 1px
+  }
+  a.link {
+    visibility: hidden;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  #top_menu.responsive {display: block;}
+  #top_menu.responsive {
+    display: block;
+    height: auto;
+  }
   #top_menu.responsive a {
     float: none;
-    display: block;
     text-align: right;
-    color: #EEE;
+    display: block;
+    visibility: visible;
   }
 }
 
