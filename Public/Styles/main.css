@@ -79,6 +79,7 @@ body
   #top_menu.responsive {
     display: block;
     height: auto;
+
   }
   #top_menu.responsive a {
     float: none;
