@@ -7,8 +7,7 @@ var answers = [
   "No.",
   "Sounds good",
   "Better not",
-  "Definitely",
-  "Luzia"
+  "Definitely"
 ];
 
 function initCanvas(){
