@@ -7,28 +7,42 @@ var colors = [
   "#FF7F00",
   "FF0000"
 ];
+var isFancy = false;
+var isInvert = false;
 
 $(document).ready(function(){
-    $("h1").mouseenter(function(){
-        $(this).css("color", "green");
-  }).mouseleave(function(){
-        $(this).css("color","red");
-    });
 
     $("#top_menu").click(function(){
       topMenu = $("#top_menu");
 
 
     });
+
+    $("*").hover(function(){
+      if (isInvert) {
+        console.log("hover");
+        $(this).addClass("invert");
+      }
+    }, function(){
+      if (isInvert) {
+        console.log("unhover");
+        $(this).removeClass("invert");
+      }
+    }
+
+  );
 });
 
 function loadStylesheet(style)
 {
-  if (style == "fancy") {
+  isInvert = false;
+  isFancy = false;
+  if (style == "rainbow") {
     isFancy = true;
     fancy();
+  } else if (style == "invert"){
+    isInvert = true;
   } else {
-    isFancy = false;
     document.documentElement.style.setProperty("--color", "#EFEFEF");
   }
 }

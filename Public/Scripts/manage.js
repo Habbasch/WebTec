@@ -8,19 +8,19 @@ $(document).ready(function(){
   getHtmlContent("home.html");
   loadStylesheet(lastStylesheet[1]);
 
-  $("#home").click(function(){
+  $(".home").click(function(){
     getHtmlContent("home.html");
   });
-  $("#form").click(function(){
+  $(".form").click(function(){
     getHtmlContent("form.html");
   });
-  $("#canvas").click(function(){
+  $(".canvas").click(function(){
     getHtmlContent("canvas.html");
   });
-  $("#textImage").click(function(){
+  $(".textImage").click(function(){
     getHtmlContent("textImage.html");
   });
-  $("#jQuery").click(function(){
+  $(".jQuery").click(function(){
     getHtmlContent("jQuery.html");
   });
   $(".icon").click(function(){
@@ -59,17 +59,20 @@ function readCookie()
   lastStylesheet = cookies[0].split("=");
 }
 
-function switchStyle()
+function switchStyle(pStyle)
 {
-  if (style == "default"){
-    document.cookie = "stylesheet=fancy";
-    style = "fancy";
-    console.log("fancy");
-  } else {
+  console.log(pStyle);
+  style = document.cookie.split('=')[1];
+  if (style == pStyle){
     document.cookie = "stylesheet=default";
     style = "default";
+    pStyle = "default";
     console.log("default");
+  } else {
+    document.cookie =  "stylesheet=" + pStyle;
+    style = pStyle;
+    console.log(pStyle);
   }
-  console.log(style);
-  loadStylesheet(style);
+  //console.log(style);
+  loadStylesheet(pStyle);
 }
