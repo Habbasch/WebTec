@@ -3,10 +3,31 @@
 Bitte bestätigen Sie dies
 <br />
 
-<form action="/thank" method="post">
+<form id="bestWebsiteForm" action="/thank" method="post">
   Vorname:<br>
   <input type="text" name="firstname"><br>
   Nachname:<br>
   <input type="text" name="lastname"> <br>
   <input type="submit" value="Submit">
 </form>
+<div id="output" ></div>
+
+<script>
+  $("#bestWebsiteForm").submit(function(event){
+    event.preventDefault();
+
+    var $form = $(this);
+
+    console.log($form.attr( "action" ));
+
+    var posting = $.post($form.attr( "action" ),{
+      lastname : $form.find('input[name="lastname"]').val(),
+      firstname : $form.find('input[name="firstname"]').val()
+    });
+
+    posting.done(function(data){
+      console.log("Data : " + data);
+      $("#output").html(data);
+    });
+  });
+</script>

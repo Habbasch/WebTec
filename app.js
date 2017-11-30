@@ -14,8 +14,12 @@ app.post('/thank', urlencodedParser, function (req, res){
   res.send(reply);
 });
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   res.sendfile('./Public/index.html');
+});
+
+app.get('/:content', function (req, res) {
+  res.redirect();
 });
 
 var server = app.listen(process.env.PORT, function () {
