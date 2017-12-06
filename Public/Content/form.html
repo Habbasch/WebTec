@@ -20,10 +20,17 @@ Bitte bestätigen Sie dies
 
     console.log($form.attr( "action" ));
 
-    var posting = $.post($form.attr( "action" ),{
-      lastname : $form.find('input[name="lastname"]').val(),
-      firstname : $form.find('input[name="firstname"]').val()
-    });
+    var lastname = $form.find('input[name="lastname"]').val();
+    var firstname = $form.find('input[name="firstname"]').val();
+
+    if (lastname == "" || firstname == "") {
+      alert("Please fill all fields, thanks");
+    } else {
+      var posting = $.post($form.attr( "action" ),{
+        lastname : lastname,
+        firstname : firstname
+      });  
+    }
 
     posting.done(function(data){
       console.log("Data : " + data);
